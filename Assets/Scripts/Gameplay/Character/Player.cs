@@ -5,12 +5,14 @@ namespace Gameplay.Character
 {
 	public class Player : MonoBehaviour
 	{
-		private Mover _mover;
+		[SerializeField] private Animator _anim;
 
 		[Inject]
-		public void Construct(Mover mover)
+		public void Construct() { }
+
+		public void PlayAnim()
 		{
-			_mover = mover;
+			_anim.SetTrigger("");
 		}
 	}
 }

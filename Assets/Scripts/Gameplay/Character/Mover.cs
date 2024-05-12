@@ -1,25 +1,33 @@
 ﻿using System;
+using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Character
 {
-	public class Mover : IDisposable
+	public class Mover : MonoBehaviour, IDisposable
 	{
-		public Mover(IInput input)
+		[SerializeField] private float _speed = 100f;
+		[SerializeField] private Rigidbody2D rb;
+		private IInput _input;
+		private Vector2 _direction;
+
+		[Inject]
+		public void Construct(IInput input)
 		{
-			input.MoveForward += MoveForwardHandler;
-			input.MoveBackward += MoveBackwardHandler;
-			input.MoveLeft += MoveLeftHandler;
-			input.MoveRight += MoveRightHandler;
+			_input = input;
+			_input.OnDirectionChanged += DirectionChangedHandler;
 		}
 
-		private void MoveForwardHandler() { }
-		private void MoveBackwardHandler() { }
-		private void MoveLeftHandler() { }
-		private void MoveRightHandler() { }
+		private void DirectionChangedHandler(Vector2 direction) => _direction = direction;
+
+		public void FixedUpdate()
+		{
+			rb.velocity = _direction * _speed * Time.deltaTime;
+		}
 
 		public void Dispose()
 		{
-			
+			_input.OnDirectionChanged -= DirectionChangedHandler;
 		}
 	}
 }
