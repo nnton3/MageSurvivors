@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2759475733133927680}
   - component: {fileID: 6428775910943041524}
   - component: {fileID: 8618951063999714239}
+  - component: {fileID: 5111595716225318703}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -127,6 +128,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5111595716225318703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4610218997761921017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f9570e0968d42468e395b41688b710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  rb: {fileID: 8618951063999714239}
 --- !u!1001 &4007281622079913715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +149,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2338026589492793517}
     m_Modifications:
+    - target: {fileID: 5654383897618821764, guid: a1102dd48e9fe5f4ab6632d22b3a3682, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7678019587676606797, guid: a1102dd48e9fe5f4ab6632d22b3a3682, type: 3}
       propertyPath: m_RootOrder
       value: 0
